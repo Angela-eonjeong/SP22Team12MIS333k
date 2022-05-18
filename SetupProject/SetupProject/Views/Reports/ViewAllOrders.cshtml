@@ -1,0 +1,34 @@
+﻿@model SetupProject.Models.OrderDetail
+
+<h1>Report of All Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.OrderNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.Customer)
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.BookPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.AvgBookCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.AvgProfitMargin)
+            </th>
+        <tr/>
+    </thead>
+</table>
+
+<a asp-action="Index" asp-controller="Reports">View Other Reports</a>
+<a asp-action="AllOrders" asp-controller="Reports">Sort</a>

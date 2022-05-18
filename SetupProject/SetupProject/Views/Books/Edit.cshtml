@@ -1,0 +1,102 @@
+@model SetupProject.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Book</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookID" />
+            
+            <!--UNIQUE NUMBER-->
+            <div class="form-group">
+                <label asp-for="UniqueNumber" class="control-label"></label>
+                @Html.DisplayFor(Model => Model.UniqueNumber, new { @class = "form-control" })
+            </div>
+            <br />
+
+            <!--TITLE-->
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <br/>
+            <!--AUTHOR-->
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <br/>
+            <!--PUB DATE-->
+            <div class="form-group">
+                <label asp-for="PublishedDate" class="control-label"></label>
+                <input asp-for="PublishedDate" class="form-control" />
+                <span asp-validation-for="PublishedDate" class="text-danger"></span>
+            </div>
+            <br/>
+            <!--DESCRIPTION-->
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <br/>
+            <!--PRICE-->
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <br/>
+
+            <!--COST-->
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <br/>
+            <!--INVENTORY-->
+            <div class="form-group">
+                <label asp-for="Inventory" class="control-label"></label>
+                <input asp-for="Inventory" class="form-control" />
+                <span asp-validation-for="Inventory" class="text-danger"></span>
+            </div>
+            <br/>
+            <!--REPLENISH MIN-->
+            <div class="form-group">
+                <label asp-for="ReplenishMinimum" class="control-label"></label>
+                <input asp-for="ReplenishMinimum" class="form-control" />
+                <span asp-validation-for="ReplenishMinimum" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label class="control-label">Genre:</label>
+                @Html.ListBox("SelectedGenre", (MultiSelectList)ViewBag.AllGenres, new { @class = "form-control" })
+            </div>
+            <br/>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Discontinued" /> @Html.DisplayNameFor(model => model.Discontinued)
+                </label>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,87 @@
+﻿@model SetupProject.Models.SearchViewModel
+
+@using SetupProject.Controllers;
+@using SetupProject.Models;
+
+
+@{
+    ViewData["Title"] = "DetailedSearch";
+}
+
+<h1>Detailed Search</h1>
+
+
+<hr />
+<div class="row"> 
+    <div class="col-md-4"> 
+        <form asp-action="DisplaySearchResults" method="get"> 
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
+             <!-- unique # -->
+            <div class="form-group">
+                <label asp-for="UserSelectedUniqueNumber" class="control-label"></label>
+                <input asp-for="UserSelectedUniqueNumber" class="form-control" />
+                <span asp-validation-for="UserSelectedUniqueNumber" class="text-danger"></span>
+            </div>
+
+            <!-- title -->
+            <div class="form-group">
+                <label asp-for="UserSelectedTitle" class="control-label"></label>
+                <input asp-for="UserSelectedTitle" class="form-control" />
+                <span asp-validation-for="UserSelectedTitle" class="text-danger"></span>
+            </div>
+
+            <!--author -->
+            <div class="form-group">
+                <label asp-for="UserSelectedAuthor" class="control-label"></label>
+                <input asp-for="UserSelectedAuthor" class="form-control" />
+                <span asp-validation-for="UserSelectedAuthor" class="text-danger"></span>
+            </div>
+
+           
+
+            <!-- genre id -->
+            <div class="form-group">
+                <label>Choose a Genre:</label>
+                @Html.DropDownList("UserSelectedGenreID", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
+                </div>
+
+            <br/>
+
+           <!--Sorting-->
+            <div class ="form-group">
+                <label>Filter:</label>
+                <label class="radio">@Html.RadioButton("sort", Sorting.Title, true) Sort by Title </label>
+                <label class="radio">@Html.RadioButton("sort", Sorting.Author) Author </label>
+                <label class="radio">@Html.RadioButton("sort", Sorting.MostPopular) Popularity </label>
+                <label class="radio">@Html.RadioButton("sort", Sorting.Newest) Newest </label>
+                <label class="radio">@Html.RadioButton("sort", Sorting.Oldest) Oldest </label>
+                <label class="radio">@Html.RadioButton("sort", Sorting.Rating) Highest Rating </label>
+            </div>
+
+            <br/>
+
+            <!--Sort in stock-->
+            <div class ="form-group">
+                <label>Inventory:</label>
+                <label class="radio">@Html.RadioButton("instock", InventorySort.AllBooks, true) Filter on All Books </label>
+                <label class="radio">@Html.RadioButton("instock", InventorySort.InStock) Books in Stock </label>
+                
+            </div>
+     
+
+           
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

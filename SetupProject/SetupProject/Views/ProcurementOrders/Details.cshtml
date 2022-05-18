@@ -1,0 +1,55 @@
+@model SetupProject.Models.ProcurementOrder
+@using SetupProject.Models
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>New Book Order</h1>
+<br/>
+<div>
+
+    <hr />
+    <dl class="row">
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProcurementDate)
+        </dt>
+        
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProcurementDate)
+        </dd>
+        
+    </dl>
+</div>
+
+<br/>
+
+
+
+<h5>Order Summary</h5>
+<table class="table table-sm table-bordered" style="width:50%">
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Cost/Book</th>
+        
+    </tr>
+   
+    @foreach (ProcurementDetail procurementDetail in Model.ProcurementDetails)
+    
+
+    {
+        <tr>
+            <td>@Html.DisplayFor(ModelItem => procurementDetail.Book.Title)</td>
+            <td>@Html.DisplayFor(ModelItem => procurementDetail.Quantity)</td>
+            <td>@Html.DisplayFor(ModelItem => procurementDetail.OrderCost)</td>
+        </tr>
+    }
+</table>
+
+<br/>
+         
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProcurementOrderID">Edit</a> |
+    <a asp-action="Index" asp-controller ="ProcurementDetails">Back to List</a>
+</div>

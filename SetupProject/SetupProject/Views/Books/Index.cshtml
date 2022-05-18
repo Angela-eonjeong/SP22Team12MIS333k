@@ -1,0 +1,92 @@
+@model IEnumerable<SetupProject.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-action="Index" asp-controller="Search" method="get"> 
+    <p class="form-group"> 
+        Search: <input name="SearchString" class="form-control"/><br/> 
+        <button type="submit" class="btn btn-primary">Search</button> 
+        <a asp-action="DetailedSearch" class="btn btn-success">Detailed Search</a> 
+        <a asp-action="Index" class="btn btn-danger">Show All</a> 
+    </p> 
+</form> 
+
+<p>Displaying @ViewBag.SelectedBooks of @ViewBag.AllBooks Books </p>
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" asp-controller="Books" class="btn btn-primary">Add Book</a>
+    </p>  
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UniqueNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory)
+            </th>
+           
+            
+            <th>
+                @Html.DisplayNameFor(model => model.AverageRating)
+            </th>
+      
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniqueNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @if (item.Inventory > 0) {@ViewBag.InStock}
+                @if (item.Inventory <= 0) {@ViewBag.OutofStock}
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageRating)
+                @*@{
+                        string parameterValue = item.AvgRating.ToString();
+                    }
+                    <text>@parameterValue</text>*@
+            </td>
+           <td>
+
+        <a asp-action="Details" asp-route-id="@item.BookID">Details</a> 
+
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+           
+                <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+            
+            }
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

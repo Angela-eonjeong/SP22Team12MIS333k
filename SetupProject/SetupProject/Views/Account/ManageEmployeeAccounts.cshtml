@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SetupProject.Models.AppUser>
+@{
+    ViewData["Title"] = "Manage Employee Accounts";
+}
+
+<h2>Manage Employee Accounts</h2>
+<p>
+    @Html.ActionLink("Hire New Employee", "CreateEmployeeAccount", "Account", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    <a asp-action="EditEmployeeAccount" asp-route-id="@item.Id" class="btn btn-warning">Edit <i class="fas fa-user-edit"></i></a>
+                    <a asp-action="ChangeEmployeeUserStatus" asp-route-id="@item.Id" class="btn btn-info">Activate/Deactivate Account <i class="fas fa-user-clock"></i></a>
+                    <a asp-action="ChangeEmployeePassword" asp-route-id="@item.Id" class="btn btn-success">Change Employee Password <i class="fas fa-user-lock"></i></a>
+                    @*<a asp-action="Delete" asp-route-id="@item.BookID" class="btn btn-danger">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

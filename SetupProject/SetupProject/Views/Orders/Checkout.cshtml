@@ -1,0 +1,104 @@
+﻿@model SetupProject.Models.Order
+@using SetupProject.Controllers
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h1>Checkout</h1>
+<br />
+<div>
+    <h5>Book Order Details</h5>
+    <table class="table table-sm table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Book Price</th>
+                <th>Quantity</th>
+                <th>Extended Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (OrderDetail rd in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => rd.Book.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => rd.BookPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => rd.BookQuantity)</td>
+                    <td>@Html.DisplayFor(modelItem => rd.SumPrice)</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    <h5>Book Order Summary</h5>
+    <table class="table table-sm table-hover table-striped">
+                <tr>
+                    <td>Order Subtotal : </td>
+                    <td>@Html.DisplayFor(r => r.OrderSubtotal)</td>
+                </tr>
+                <tr>
+                    <td>Shipping Cost : </td>
+                    <td>@Html.DisplayFor(r => r.ShippingCost)</td>
+                </tr>
+                <tr>
+                    <td>Order Total : </td>
+                    <td>@Html.DisplayFor(r => r.OrderTotal)</td>
+                </tr>
+        </table>
+</div>
+<br />
+<div>
+    <!-- coupon code-->
+    <form asp-action="EnterPromo">
+        <div class="form-group">
+            <input asp-for="OrderID" type="hidden" name="orderId" class="form-control" />
+        </div>
+        <p><font color="red">@ViewBag.PromoError</font></p>
+        <b>Enter Coupon Code:</b><br>
+        <input asp-for="Promotion.PromoCode" name="promoCode" class="form-control" />
+        <input type="submit" value="Apply Code">
+    </form>
+</div>
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CardNumber
+            </th>
+            <th>
+                CardType
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customer.PaymentMethods)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardType)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<div>
+    <p>
+        <br />
+        <!-- place order-->
+        <a asp-action="PlacedOrder" asp-route-id="@Model.OrderID" class="btn btn-success">Place Order</a>
+
+    </p>
+</div>

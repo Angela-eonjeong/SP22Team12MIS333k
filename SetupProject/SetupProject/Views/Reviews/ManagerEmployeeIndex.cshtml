@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<SetupProject.Models.Review>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Pending Reviews</h2>
+
+<p>
+    <a asp-action="AllReviews" class="btn btn-primary">All Reviews</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.Title)
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.NormalizedUserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-controller="Reviews" asp-action="Approve" asp-route-id="@item.ReviewID" class="btn btn-success">Approve <i class="far fa-thumbs-up"></i></a>
+                    <a asp-controller="Reviews" asp-action="Reject" asp-route-id="@item.ReviewID" class="btn btn-danger">Reject <i class="far fa-thumbs-down"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

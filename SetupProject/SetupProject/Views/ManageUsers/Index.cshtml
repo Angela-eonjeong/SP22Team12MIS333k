@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<RoleEditModel>
+@{
+    ViewBag.Title = "Manage Users";
+}
+
+
+<h2>Manage Users</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Manage Roles", "Index", "RoleAdmin", null, new { @class = "btn btn-primary" })
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Manage Customer Accounts", "ManageCustomerAccounts", "Account", null, new { @class = "btn btn-primary" })
+</p>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Manage Employee Accounts", "ManageEmployeeAccounts", "Account", null, new { @class = "btn btn-primary" })
+    </p>
+}

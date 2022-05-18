@@ -1,0 +1,87 @@
+﻿@model SetupProject.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Book Details</h1>
+<br/>
+<div>
+
+    <hr />
+    <dl class="row">
+
+        <!-- Title -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <!-- Author -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <!-- Unique Number -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UniqueNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UniqueNumber)
+        </dd>
+
+        <!-- Price -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+
+
+        <!-- Date -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublishedDate)
+        </dd>
+
+        <!-- Genre -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre.GenreName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genre.GenreName)
+        </dd>
+
+
+    </dl>
+</div>
+<br/>
+<a asp-controller="Search" asp-action="Index">Back to List</a> 
+<br/>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+{
+    <div>
+
+        <a asp-action="AddBook" asp-controller="Orders" asp-route-id="@Model.BookID" class="btn btn-warning">Add To Cart</a>
+        <a asp-action="Index" asp-controller="Reviews" class="btn btn-danger">Reviews/Ratings</a>
+        <a asp-action="Index" asp-controller="Reviews" class="btn btn-secondary">Create Review</a>
+    </div>
+}
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Employee"))
+{
+    <div>
+    <a asp-action="Index" class="btn btn-danger">Reviews/Ratings</a>
+    </div>
+}
+
+

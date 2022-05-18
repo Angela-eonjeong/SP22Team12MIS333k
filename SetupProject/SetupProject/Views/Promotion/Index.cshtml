@@ -1,0 +1,64 @@
+@model IEnumerable<SetupProject.Models.Promotion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PromoCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PromoDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShipWaiver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinimumSpend)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromoCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromoDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipWaiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumSpend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PromotionID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PromotionID">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

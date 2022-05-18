@@ -1,0 +1,46 @@
+@model SetupProject.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>OrderDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Order.OrderID)
+
+            <div class="form-group">
+                <label class="control-label">Books:</label>
+                @Html.DropDownList("SelectedBook", (MultiSelectList)ViewBag.AllBooks, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="BookQuantity" class="control-label"></label>
+                <input asp-for="BookQuantity" class="form-control" />
+                <span asp-validation-for="BookQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookPrice" class="control-label"></label>
+                <input asp-for="BookPrice" class="form-control" />
+                <span asp-validation-for="BookPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SumPrice" class="control-label"></label>
+                <input asp-for="SumPrice" class="form-control" />
+                <span asp-validation-for="SumPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add to Order" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

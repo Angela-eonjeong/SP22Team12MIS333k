@@ -1,0 +1,117 @@
+﻿@model IEnumerable<SetupProject.Models.Promotion>
+
+<br />
+<br />
+
+<div class="text-center">
+    <h1> Welcome to Bevo's Books </h1>
+    <h2>@User.Identity.Name</h2>
+</div>
+
+<br />
+
+<div class="text-center">
+    <a asp-action="Index" asp-controller="Search" class="btn btn-primary btn-lg" type="button">Find Books</a>
+</div>
+<br />
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+{
+
+    <div class="text-center">
+        <div class="btn-group-lg">
+            <a asp-action="Cart" asp-controller="Orders" class="btn btn-outline-success">Shopping Cart</a>
+            <a asp-action="Index" asp-controller="Orders" class="btn btn-outline-success">Order History</a>
+            <a asp-action="Index" asp-controller="Reviews" class="btn btn-outline-success">Review a Book</a>
+        </div>
+    </div>
+}
+
+
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="text-center">
+        <div class="btn-group-lg">
+            <a asp-action="Index" asp-controller="ManageUsers" class="btn btn-outline-success">Manage Users</a>
+
+            <a asp-action="Index" asp-controller="ProcurementOrders" class="btn btn-outline-success">Order Inventory</a>
+            <a asp-action="Index" asp-controller="Reviews" class="btn btn-outline-success">Manage Reviews</a>
+            <a asp-action="ChooseReport" asp-controller="Reports" class="btn btn-outline-success">View Report</a>
+            <a asp-action="ChangeShippingCosts" asp-controller="ShippingCosts" class="btn btn-outline-success">Manage Shipping Cost</a>
+            <a asp-action="Index" asp-controller="Promotion" class="btn btn-outline-success">Manage Promotion</a>
+
+        </div>
+    </div>
+}
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Employee"))
+{
+    <div class="text-center">
+        <div class="btn-group-lg">
+
+            <a asp-action="Index" asp-controller="ManageUsers" class="btn btn-outline-success">Manage Users</a>
+            <a asp-action="Index" asp-controller="Reviews" class="btn btn-outline-success">Manage Reviews</a>
+
+        </div>
+    </div>
+}
+
+
+
+
+<br />
+<br />
+<br />
+
+
+<div class="home">
+    <div class="class1">
+        <h2 align="center">
+            Current Promotions!
+        </h2>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Promotion Code
+                    </th>
+                    <th>
+                        Discount Amount
+                    </th>
+                    <th>
+                        Minimum Required to Use
+                    </th>
+                    <th>
+                        Shipping Waiver?
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromoCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiscountAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MinimumSpend)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ShipWaiver)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

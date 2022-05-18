@@ -1,0 +1,45 @@
+﻿@model SetupProject.Models.ProcurementDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ProcurementDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateManual">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @Html.HiddenFor(model => model.ProcurementOrder.ProcurementOrderID)
+            @Html.HiddenFor(model => model.Book.UniqueNumber)
+            
+            <br/>
+            <!--QUANTITY-->
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <br/>
+
+            <!--Cost-->
+            <div class="form-group">
+                <label asp-for="Book.Cost" class="control-label"></label>
+                <input asp-for="Book.Cost" class="form-control" />
+                <span asp-validation-for="Book.Cost" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Add to Order" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

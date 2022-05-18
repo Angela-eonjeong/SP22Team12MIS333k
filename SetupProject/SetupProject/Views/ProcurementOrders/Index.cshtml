@@ -1,0 +1,55 @@
+@model IEnumerable<SetupProject.Models.ProcurementOrder>
+@using SetupProject.Models
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1>Create New Book Order</h1>
+</div>
+
+<br/>
+ <div class="text-center">
+        <div class="btn-group-lg">
+
+            <a asp-action="Search" asp-controller="ProcurementOrders" class="btn btn-outline-warning">Manual Order</a>
+            <a asp-action="AutoOrderDisplay" asp-controller="ProcurementOrders" class="btn btn-outline-danger">Automatic Order</a>
+         
+        </div>
+    </div>
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.ProcurementDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcurementDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProcurementOrderID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProcurementOrderID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProcurementOrderID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

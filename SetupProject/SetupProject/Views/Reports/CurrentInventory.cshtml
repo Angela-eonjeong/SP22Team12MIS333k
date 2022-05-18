@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SetupProject.Models.InventoryReportVM>
+
+<h2>Inventory Report</h2>
+
+<p>Displaying @ViewBag.SelectedRecords Records </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Ammount In Stock
+            </th>
+            <th>
+                Average Cost
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BooksInInventory)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WeightedAvgCost)
+    </td>
+</tr>}
+    </tbody>
+</table>
+
+<p>The Total Cost of the Inventory is: $@ViewBag.TotalCost  </p>
+<p>The Total Value of the Inventory when sold is: $@ViewBag.TotalValue  </p>
+
+<div>
+    <a asp-action="ChooseReport" class="btn btn-secondary">Back to Reports</a>
+</div>

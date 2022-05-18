@@ -1,0 +1,65 @@
+@model SetupProject.Models.Promotion
+
+@{ ViewData["Title"] = "Edit"; }
+
+
+<h4>Promo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PromotionID" />
+            <input type="hidden" asp-for="PromoCode" />
+            <input type="hidden" asp-for="DiscountAmount" />
+            <input type="hidden" asp-for="PromoDescription" />
+            <input type="hidden" asp-for="MinimumSpend" />
+            <div class="form-group">
+                <label asp-for="PromoCode" class="control-label">Promotion Code </label>:
+                @Html.DisplayFor(model => model.PromoCode)
+            </div>
+            <div class="form-group">
+                <label asp-for="PromoDescription" class="control-label">Description </label>:
+                @Html.DisplayFor(model => model.PromoDescription)
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountAmount" class="control-label">Discount Amount  </label>:
+                @Html.DisplayFor(model => model.DiscountAmount)
+            </div>
+            <div class="form-group">
+                <label asp-for="MinimumSpend" class="control-label">Minimum spend </label>:
+                @Html.DisplayFor(model => model.MinimumSpend)
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ShipWaiver" type="hidden" />
+                        @Html.DisplayFor(model => model.ShipWaiver)
+                        @Html.DisplayNameFor(model => model.ShipWaiver)
+
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Status" />
+                        @Html.DisplayNameFor(model => model.Status)
+                    </label>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Save Changes <i class="far fa-save"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List <i class="fas fa-arrow-circle-left"></i></a>
+</div>
+

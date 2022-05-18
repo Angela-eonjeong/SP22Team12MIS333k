@@ -1,0 +1,106 @@
+﻿@model SetupProject.Models.Book
+
+@{
+    ViewData["Title"] = "ConfirmCart";
+}
+
+<h1>ConfirmCart</h1>
+<form asp-action="CreateAuto" asp-controller="ProcurementOrder" method="get">
+
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UniqueNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UniqueNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublishedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastOrdered)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastOrdered)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Inventory)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InitialInventory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InitialInventory)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InitialSellingPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InitialSellingPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InitialCost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InitialCost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReplenishMinimum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReplenishMinimum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Discontinued)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Discontinued)
+        </dd>
+    </dl>
+</div>
+<div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-success">Submit Order <i class="fas fa-plus-circle"></i></button>
+        </div>
+        </div>
+</form>

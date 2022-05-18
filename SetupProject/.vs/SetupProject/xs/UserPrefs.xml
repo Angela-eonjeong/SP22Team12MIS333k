@@ -1,0 +1,135 @@
+﻿<Properties StartupConfiguration="{B9C6F735-5556-40A6-A0FB-89C5C9460B48}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SetupProject/Controllers/OrdersController.cs">
+    <Files>
+      <File FileName="SetupProject/Views/Reviews/Index.cshtml" Line="7" Column="12" />
+      <File FileName="SetupProject/Controllers/AccountController.cs" />
+      <File FileName="SetupProject/Views/ShippingCosts/ChangeShippingCosts.cshtml" />
+      <File FileName="SetupProject/Controllers/ShippingCostsController.cs" />
+      <File FileName="SetupProject/Views/Home/Index.cshtml" />
+      <File FileName="SetupProject/Views/Shared/_Layout.cshtml" />
+      <File FileName="SetupProject/Controllers/ReportsController.cs" />
+      <File FileName="SetupProject/Controllers/RecommendBooks.cs" />
+      <File FileName="SetupProject/Views/Account/Index.cshtml" />
+      <File FileName="SetupProject/Views/Account/ChangePassword.cshtml" />
+      <File FileName="SetupProject/Views/Account/Register.cshtml" />
+      <File FileName="SetupProject/Models/PaymentMethod.cs" />
+      <File FileName="SetupProject/Models/ViewModels/AccountViewModels.cs" />
+      <File FileName="SetupProject/Models/ViewModels/ModifyAccountViewModel.cs" />
+      <File FileName="SetupProject/Models/AppUser.cs" />
+      <File FileName="SetupProject/Models/Review.cs" />
+      <File FileName="SetupProject/Models/ViewModels/RoleViewModels.cs" />
+      <File FileName="SetupProject/Models/Order.cs" />
+      <File FileName="SetupProject/Controllers/OrdersController.cs" Line="586" Column="36" />
+      <File FileName="SetupProject/Models/Promotion.cs" />
+      <File FileName="SetupProject/Views/Promotion/Create.cshtml" />
+      <File FileName="SetupProject/Views/Promotion/Details.cshtml" />
+      <File FileName="SetupProject/Seeding/SeedPromotions.cs" />
+      <File FileName="SetupProject/Views/RoleAdmin/Index.cshtml" />
+      <File FileName="SetupProject/Models/Book.cs" />
+      <File FileName="SetupProject/Controllers/PaymentMethodController.cs" />
+      <File FileName="SetupProject/Seeding/SeedPaymentMethods.cs" />
+      <File FileName="SetupProject/SetupProject.csproj" />
+      <File FileName="SetupProject/Controllers/ManageUsersController.cs" />
+      <File FileName="SetupProject/Seeding/SeedUsers.cs" />
+      <File FileName="SetupProject/Views/PaymentMethod/Create.cshtml" />
+      <File FileName="SetupProject/Startup.cs" />
+      <File FileName="SetupProject/Views/_ViewImports.cshtml" />
+      <File FileName="SetupProject/Views/Reviews/ManagerEmployeeIndex.cshtml" />
+      <File FileName="SetupProject/Views/Reviews/AllReviews.cshtml" />
+      <File FileName="SetupProject/Seeding/SeedReviews.cs" />
+      <File FileName="SetupProject/Views/Reviews/Create.cshtml" />
+      <File FileName="SetupProject/Views/Reviews/Edit.cshtml" />
+      <File FileName="SetupProject/Views/Orders/Cart.cshtml" />
+      <File FileName="SetupProject/Views/Orders/Index.cshtml" />
+      <File FileName="SetupProject/Views/PaymentMethod/Details.cshtml" />
+      <File FileName="SetupProject/Views/PaymentMethod/Edit.cshtml" />
+      <File FileName="SetupProject/Views/PaymentMethod/Delete.cshtml" />
+      <File FileName="SetupProject/Views/Orders/Delete.cshtml" />
+      <File FileName="SetupProject/Views/Shared/_LoginPartial.cshtml" />
+      <File FileName="SetupProject/Views/ManageUsers/Index.cshtml" />
+      <File FileName="SetupProject/Views/Reviews/Details.cshtml" />
+      <File FileName="SetupProject/Views/Reviews/Delete.cshtml" />
+      <File FileName="SetupProject/Views/Account/ManageEmployeeAccounts.cshtml" />
+      <File FileName="SetupProject/Views/Account/ManageCustomerAccounts.cshtml" />
+      <File FileName="SetupProject/Views/Account/EditEmployeeAccount.cshtml" />
+      <File FileName="SetupProject/Views/Account/EditCustomerAccount.cshtml" />
+      <File FileName="SetupProject/Seeding/SeedGenres.cs" />
+      <File FileName="SetupProject/Seeding/SeedBooks.cs" />
+      <File FileName="SetupProject/Views/Account/ChangeCustomerPassword.cshtml" />
+      <File FileName="SetupProject/Views/Account/ChangeCustomerUserStatus.cshtml" />
+      <File FileName="SetupProject/Views/Account/ChangeEmployeePassword.cshtml" />
+      <File FileName="SetupProject/Views/Account/ChangeEmployeeUserStatus.cshtml" />
+      <File FileName="SetupProject/Views/Account/CreateCustomerAccount.cshtml" />
+      <File FileName="SetupProject/Views/Account/CreateEmployeeAccount.cshtml" />
+      <File FileName="SetupProject/Views/Orders/AddToCart.cshtml" />
+      <File FileName="SetupProject/Models/ShippingCosts.cs" />
+      <File FileName="SetupProject/Views/Promotion/Edit.cshtml" />
+      <File FileName="SetupProject/Views/Promotion/Index.cshtml" />
+      <File FileName="SetupProject/Controllers/PromotionController.cs" />
+      <File FileName="SetupProject/Controllers/ReviewsController.cs" />
+      <File FileName="SetupProject/Controllers/HomeController.cs" />
+      <File FileName="SetupProject/Controllers/OrderDetailsController.cs" />
+      <File FileName="SetupProject/Models/OrderDetail.cs" />
+      <File FileName="SetupProject/Views/Books/Details.cshtml" />
+      <File FileName="SetupProject/Views/Orders/Checkout.cshtml" />
+      <File FileName="SetupProject/Views/Orders/PlacedOrder.cshtml" />
+      <File FileName="SetupProject/Views/PaymentMethod/Index.cshtml" />
+      <File FileName="SetupProject/Views/Orders/Details.cshtml" />
+      <File FileName="SetupProject/Views/Search/Details.cshtml" />
+      <File FileName="SetupProject/Views/OrderDetails/Edit.cshtml" />
+      <File FileName="SetupProject/Views/OrderDetails/Delete.cshtml" />
+      <File FileName="SetupProject/Models/ViewModels/AllBooksReportViewModel.cs" />
+      <File FileName="SetupProject/Controllers/BooksController.cs" />
+      <File FileName="SetupProject/Models/ProcurementDetail.cs" />
+      <File FileName="SetupProject/Models/ProcurementOrder.cs" />
+      <File FileName="SetupProject/Models/ViewModels/ProcurementVM.cs" />
+      <File FileName="SetupProject/Views/Reports/AllBooksSold.cshtml" />
+      <File FileName="SetupProject/DAL/AppDbContext.cs" />
+      <File FileName="SetupProject/Views/Reports/AllOrders.cshtml" />
+      <File FileName="SetupProject/Views/Reports/AllCustomers.cshtml" />
+      <File FileName="SetupProject/Views/Reports/Totals.cshtml" />
+      <File FileName="SetupProject/Views/Reports/CurrentInventory.cshtml" />
+      <File FileName="SetupProject/Seeding/SeedRoles.cs" />
+      <File FileName="SetupProject/Controllers/ProcurementOrdersController.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SetupProject" expanded="True">
+            <Node name="SetupProject" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="OrdersController.cs" selected="True" />
+              </Node>
+              <Node name="DAL" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ViewModels" expanded="True" />
+              </Node>
+              <Node name="Seeding" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Books" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Reports" expanded="True" />
+                <Node name="Reviews" expanded="True" />
+                <Node name="Seed" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.SetupProject PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

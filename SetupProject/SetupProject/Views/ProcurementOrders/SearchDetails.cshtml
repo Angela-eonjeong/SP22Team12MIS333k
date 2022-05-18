@@ -1,0 +1,75 @@
+﻿@model SetupProject.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+
+        <!-- Title -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <!-- Author -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <!-- Unique Number -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UniqueNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UniqueNumber)
+        </dd>
+
+        <!-- Price -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+      
+
+        <!-- Date -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublishedDate)
+        </dd>
+
+        <!-- Genre -->
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre.GenreName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genre.GenreName)
+        </dd>
+     
+
+    </dl>
+</div>
+<div>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <a asp-action="CreateManual" asp-controller="ProcurementOrders" class="btn btn-danger"> Order More</a>
+    }
+    
+</div>
+

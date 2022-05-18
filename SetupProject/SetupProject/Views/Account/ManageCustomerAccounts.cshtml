@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SetupProject.Models.AppUser>
+@{
+    ViewData["Title"] = "Manage Customer Accounts";
+}
+
+<h2>Modify Customer Accounts</h2>
+
+<p>
+    @Html.ActionLink("Create New Customer Account", "CreateCustomerAccount", "Account", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                
+                <td>
+                    <a asp-action="EditCustomerAccount" asp-route-id="@item.Id" class="btn btn-warning">Edit <i class="fas fa-user-edit"></i></a>
+                    <a asp-action="ChangeCustomerUserStatus" asp-route-id="@item.Id" class="btn btn-info">Activate/Deactivate Account <i class="fas fa-user-clock"></i></a>
+                    <a asp-action="ChangeCustomerPassword" asp-route-id="@item.Id" class="btn btn-success">Change Customer Password <i class="fas fa-user-lock"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

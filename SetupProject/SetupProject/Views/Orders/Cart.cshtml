@@ -1,0 +1,98 @@
+﻿@model SetupProject.Models.Order
+@using SetupProject.Models;
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<h1>Shopping Cart</h1>
+<br />
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizonal">
+
+        <!--EMAIL-->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.Email)
+        </dd>
+
+        <!--ORDER NUMBER-->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderNumber)
+        </dd>
+
+        <!--ORDER DATE-->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+
+    </dl>
+</div>
+
+<h5>Shopping Cart</h5>
+<table class="table table-primary">
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Extended Price</th>
+        <th>Inventory</th>
+        <th>BookDiscontinued</th>
+        <th>Details</th>
+    </tr>
+    <!--product.product name, price, quantity,extendedprice-->
+    @foreach (OrderDetail od in Model.OrderDetails)
+    {
+        <tr>
+            <td>@Html.DisplayFor(ModelItem => od.Book.Title)</td>
+            <td>@Html.DisplayFor(ModelItem => od.BookPrice)</td>
+            <td>@Html.DisplayFor(ModelItem => od.BookQuantity)</td>
+            <td>@Html.DisplayFor(ModelItem => od.SumPrice)</td>
+            <td>@Html.DisplayFor(ModelItem => od.Book.Inventory)</td>
+            <td>@Html.DisplayFor(ModelItem => od.Book.Discontinued)</td>
+            <td>
+                <a asp-action="Edit" asp-controller="OrderDetails" asp-route-id="@od.OrderDetailID" class="btn btn-info"> Modify </a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<h5>Order Summary</h5>
+<table class="table table-sm table-bordered" style="width:30%">
+    <tr>
+        <th colspan="2" style="text-align:center">Order Summary</th>
+    </tr>
+    <tr>
+        <td>Order Subtotal:</td>
+        <td>@Html.DisplayFor(s => s.OrderSubtotal)</td>
+    </tr>
+    <tr>
+        <td>Shipping Cost:</td>
+        <td>@Html.DisplayFor(s => s.ShippingCost)</td>
+    </tr>
+    <tr>
+        <td>Order Total:</td>
+        <td>@Html.DisplayFor(s => s.OrderTotal)</td>
+    </tr>
+
+</table>
+
+
+
+<div>
+    <a asp-action="Checkout" asp-route-id="@Model.OrderID">Checkout</a>|
+    <a asp-action="Index" asp-controller="Search">Keep Shopping </a>
+</div>
+

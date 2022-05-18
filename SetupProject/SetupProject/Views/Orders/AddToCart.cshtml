@@ -1,0 +1,39 @@
+﻿@model SetupProject.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "AddToCart";
+}
+
+<h1>Shopping Cart</h1>
+
+<br/>
+
+<h4>OrderDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddToCart">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Order.OrderID" />
+            
+           
+            
+          
+            <!--QUANTITY-->
+            <div class="form-group">
+                <label asp-for="BookQuantity" class="control-label"></label>
+                <input asp-for="BookQuantity" class="form-control" />
+                <span asp-validation-for="BookQuantity" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Add to Order" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,63 @@
+﻿
+@model IEnumerable<SetupProject.Models.AllBooksReportViewModel>
+
+<h2>
+    All Books Report
+</h2>
+
+<p>Displaying @ViewBag.SelectedRecords Records </p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Order Number
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Selling Price
+            </th>
+            <th>
+                Weighted Average Cost
+            </th>
+            <th>
+                Profit Margin
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AllBooksReportViewModel item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookQuantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrderNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SellingPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WeightedAvgCost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProfitMargin)
+    </td>
+</tr>}
+    </tbody>
+</table>

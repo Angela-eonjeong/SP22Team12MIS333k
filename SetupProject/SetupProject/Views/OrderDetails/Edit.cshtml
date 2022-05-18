@@ -1,0 +1,50 @@
+@model SetupProject.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OrderDetailID" />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Book.Title)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Book.Title)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.BookPrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.BookPrice)
+                </dd>
+            </dl>
+
+            <div class="form-group">
+                <label asp-for="BookQuantity" class="control-label"></label>
+                <input asp-for="BookQuantity" class="form-control" />
+                <span asp-validation-for="BookQuantity" class="text-danger"></span>
+                <p><font color="red">@ViewBag.QuantityError</font></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+
+<div>
+   
+    <a asp-action="Delete" asp-controller="OrderDetails" asp-route-id="@Model.OrderDetailID" class="btn btn-danger"> Delete Book From Order </a>
+    <br />
+    <a asp-action="Cart" asp-controller="Orders">Back to Shopping Cart <i class="fas fa-shopping-cart"></i></a>
+</div>

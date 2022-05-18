@@ -1,0 +1,82 @@
+﻿@model IEnumerable<SetupProject.Models.Book>
+
+
+<h2>Procurement</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Include?
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.AverageRating)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Inventory)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.ReplenishMinimum)
+            </th>
+            <th>
+                Order Quantity
+            </th>
+            
+            <th>
+                    Cost
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <input type="checkbox" name="IdsToAdd" value="@item.BookID" checked />
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.AverageRating)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Inventory)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.ReplenishMinimum)
+                </td>
+                <td>
+                    @Html.TextBox("Quantity", 5, new { @class = "form-control" })
+                </td>
+               
+                <td>
+                        @Html.TextBox("Cost", item.Cost, new { @class = "form-control" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Order Book" class="btn btn-default" />
+    </div>
+</div>

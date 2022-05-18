@@ -1,0 +1,17 @@
+﻿<h1>Reports</h1>
+
+<br />
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="text-center">
+        <div class="btn-group-lg">
+            <a asp-action="AllBooksSold" asp-controller="Reports" class="btn btn-outline-warning">All Books Sold</a>
+            <a asp-action="AllOrders" asp-controller="Reports" class="btn btn-outline-danger">All Orders</a>
+            <a asp-action="AllCustomers" asp-controller="Reports" class="btn btn-outline-success">All Customers</a>
+            <a asp-action="Totals" asp-controller="Reports" class="btn btn-outline-primary">Totals</a>
+            <a asp-action="CurrentInventory" asp-controller="Reports" class="btn btn-outline-info">Current Inventory</a>
+        </div>
+    </div>
+}
+
